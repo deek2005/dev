@@ -1,4 +1,34 @@
-hey class
-now 
-i 
-mam 
+
+
+package hello.SimpleJSON;
+
+import java.io.FileReader;
+
+import java.io.IOException;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+
+public class ReadJSON {
+	public static void main(String[] args) throws IOException, ParseException {
+		JSONParser jsonparser=new JSONParser();
+		FileReader reader=new FileReader(".\\JSON\\student.json");
+		
+		Object obj = jsonparser.parse(reader);
+		JSONObject studentobj=(JSONObject)obj;
+
+		String usn = (String)studentobj.get("USN");
+		String nam = (String)studentobj.get("Student Name");
+		
+		System.out.println("USN: "+usn);
+		System.out.println("Name: "+nam);
+
+		
+		// TODO Auto-generated method stub
+
+
+	}
+
+}
